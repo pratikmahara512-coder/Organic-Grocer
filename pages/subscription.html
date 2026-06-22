@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscriptions – GreenRoots</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav__logo">🌿 GreenRoots</a>
+    <ul class="nav__links">
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="subscription.html">Subscribe</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="login.html" class="btn btn--ghost">Sign in</a>
+      <a href="cart.html" class="btn btn--cart">🛒 <span id="cartCount">0</span></a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Subscription Boxes</h1>
+    <p>Choose a plan · Pause or cancel any time · No lock-in</p>
+  </div>
+
+  <div class="section">
+    <div class="plans-grid">
+      <div class="plan-card">
+        <h3>Essentials</h3>
+        <div class="plan-card__price">$39<span>/week</span></div>
+        <p>A compact seasonal box — perfect for 1–2 people.</p>
+        <ul>
+          <li>6–8 seasonal items</li>
+          <li>Weekly or fortnightly delivery</li>
+          <li>Recipe card included</li>
+          <li>Nutritional info for each item</li>
+        </ul>
+        <a href="login.html" class="btn btn--outline btn--full">Get started</a>
+      </div>
+      <div class="plan-card popular">
+        <div class="plan-card__badge">Most popular</div>
+        <h3>Family Box</h3>
+        <div class="plan-card__price">$65<span>/week</span></div>
+        <p>A generous mixed box for families of 3–5.</p>
+        <ul>
+          <li>12–14 seasonal items</li>
+          <li>Weekly, fortnightly or monthly</li>
+          <li>2 recipe cards included</li>
+          <li>Priority delivery slot</li>
+          <li>Free delivery</li>
+        </ul>
+        <a href="login.html" class="btn btn--primary btn--full">Get started</a>
+      </div>
+      <div class="plan-card">
+        <h3>Pantry Bundle</h3>
+        <div class="plan-card__price">$89<span>/month</span></div>
+        <p>Dry goods and staples to keep your pantry organic all month.</p>
+        <ul>
+          <li>Oats, rice, honey, oils &amp; more</li>
+          <li>Monthly delivery</li>
+          <li>No fresh produce (great add-on)</li>
+          <li>10% discount vs. individual prices</li>
+        </ul>
+        <a href="login.html" class="btn btn--outline btn--full">Get started</a>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;background:var(--cream-dark);border-radius:12px;padding:2rem;">
+      <h2 style="font-family:'Fraunces',serif;color:var(--green-dark);margin-bottom:1rem;">Choose Your Delivery Day</h2>
+      <p style="color:var(--text-muted);margin-bottom:1.5rem;">Select the day and time slot you'd like your box delivered each week.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:500px;">
+        <div class="form-group">
+          <label>Preferred Day</label>
+          <select>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Time Slot</label>
+          <select>
+            <option>7am – 12pm</option>
+            <option>12pm – 5pm</option>
+            <option>5pm – 8pm</option>
+          </select>
+        </div>
+      </div>
+      <a href="login.html" class="btn btn--primary">Confirm &amp; subscribe</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="footer__logo">🌿 GreenRoots</span><p>Organic groceries, delivered fresh.</p></div>
+    <div class="footer__links"><h4>Shop</h4><a href="products.html">All Products</a><a href="subscription.html">Subscriptions</a></div>
+    <div class="footer__links"><h4>Help</h4><a href="delivery.html">Delivery Info</a><a href="login.html">My Account</a></div>
+    <div class="footer__bottom"><p>© 2026 GreenRoots Organic Pty Ltd</p></div>
+  </footer>
+  <script src="../js/data.js"></script><script src="../js/app.js"></script>
+</body>
+</html>

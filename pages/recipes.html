@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes – GreenRoots</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav__logo">🌿 GreenRoots</a>
+    <ul class="nav__links">
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="subscription.html">Subscribe</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="login.html" class="btn btn--ghost">Sign in</a>
+      <a href="cart.html" class="btn btn--cart">🛒 <span id="cartCount">0</span></a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Recipes &amp; Nutrition</h1>
+    <p>Seasonal recipe ideas and nutritional information from our kitchen team</p>
+  </div>
+
+  <div class="section">
+    <div class="products-grid">
+      <div class="recipe-card">
+        <div class="recipe-card__img">🥗</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Lunch · 15 min</div>
+          <div class="recipe-card__name">Kale &amp; Heirloom Tomato Salad</div>
+          <div class="recipe-card__meta">Massaged kale, roasted heirlooms, toasted seeds, lemon dressing.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🥬 Kale · 🍅 Heirloom Tomatoes · 🍋 Lemons</p>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-card__img">🥣</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Breakfast · 10 min</div>
+          <div class="recipe-card__name">Honey Banana Porridge</div>
+          <div class="recipe-card__meta">Creamy oats with sliced banana, raw honey, and a dash of coconut oil.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🌾 Oats · 🍌 Bananas · 🍯 Raw Honey</p>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-card__img">🍲</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Dinner · 35 min</div>
+          <div class="recipe-card__name">Roasted Capsicum &amp; Broccoli Stir-Fry</div>
+          <div class="recipe-card__meta">Quick wok-tossed vegetables with tamari, ginger and brown rice.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🫑 Capsicum · 🥦 Broccoli · 🍚 Brown Rice</p>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-card__img">🥤</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Snack · 5 min</div>
+          <div class="recipe-card__name">Green Detox Smoothie</div>
+          <div class="recipe-card__meta">Baby spinach, banana, apple, lemon juice blended with coconut water.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🥬 Spinach · 🍌 Banana · 🍎 Apple · 🍋 Lemon</p>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-card__img">🍓</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Dessert · 5 min</div>
+          <div class="recipe-card__name">Strawberry Greek Yoghurt Bowl</div>
+          <div class="recipe-card__meta">Thick organic yoghurt layered with fresh strawberries and a drizzle of honey.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🍓 Strawberries · 🫙 Greek Yoghurt · 🍯 Honey</p>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="recipe-card__img">🥕</div>
+        <div class="recipe-card__body">
+          <div class="recipe-card__tag">Sides · 25 min</div>
+          <div class="recipe-card__name">Glazed Honey Carrots</div>
+          <div class="recipe-card__meta">Oven-roasted carrots glazed with raw honey and fresh thyme. Simple, stunning.</div>
+          <p style="font-size:.8rem;color:var(--green-mid);margin-top:.75rem;">🥕 Carrots · 🍯 Raw Honey</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Fraunces',serif;color:var(--green-dark);margin-bottom:1.5rem;">Nutritional Information</h2>
+      <div id="nutritionTable"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="footer__logo">🌿 GreenRoots</span><p>Organic groceries, delivered fresh.</p></div>
+    <div class="footer__links"><h4>Shop</h4><a href="products.html">All Products</a><a href="subscription.html">Subscriptions</a></div>
+    <div class="footer__links"><h4>Help</h4><a href="delivery.html">Delivery Info</a><a href="login.html">My Account</a></div>
+    <div class="footer__bottom"><p>© 2026 GreenRoots Organic Pty Ltd</p></div>
+  </footer>
+
+  <script src="../js/data.js"></script><script src="../js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('nutritionTable');
+      const rows = products.map(p => `
+        <tr>
+          <td style="padding:.75rem 1rem;">${p.emoji} ${p.name}</td>
+          <td style="padding:.75rem 1rem;color:var(--text-muted);font-size:.85rem;">${p.category}</td>
+          <td style="padding:.75rem 1rem;font-size:.85rem;">${p.nutrition}</td>
+        </tr>`).join('');
+      container.innerHTML = `<table style="width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);">
+        <thead style="background:var(--green-dark);color:white;">
+          <tr><th style="padding:.75rem 1rem;text-align:left;">Product</th><th style="padding:.75rem 1rem;text-align:left;">Category</th><th style="padding:.75rem 1rem;text-align:left;">Nutritional Info (per 100g)</th></tr>
+        </thead><tbody>${rows}</tbody></table>`;
+    });
+  </script>
+</body>
+</html>

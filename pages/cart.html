@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart – GreenRoots</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="../index.html" class="nav__logo">🌿 GreenRoots</a>
+    <ul class="nav__links">
+      <li><a href="products.html">Shop</a></li>
+      <li><a href="subscription.html">Subscribe</a></li>
+      <li><a href="recipes.html">Recipes</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="login.html" class="btn btn--ghost">Sign in</a>
+      <a href="cart.html" class="btn btn--cart">🛒 <span id="cartCount">0</span></a>
+    </div>
+  </nav>
+
+  <div class="cart-wrapper">
+    <h1>Your Cart</h1>
+    <div id="cartContents"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__brand"><span class="footer__logo">🌿 GreenRoots</span><p>Organic groceries, delivered fresh.</p></div>
+    <div class="footer__links"><h4>Shop</h4><a href="products.html">All Products</a><a href="subscription.html">Subscriptions</a></div>
+    <div class="footer__links"><h4>Help</h4><a href="delivery.html">Delivery Info</a><a href="login.html">My Account</a></div>
+    <div class="footer__bottom"><p>© 2026 GreenRoots Organic Pty Ltd</p></div>
+  </footer>
+
+  <script src="../js/data.js"></script><script src="../js/app.js"></script>
+  <script>
+    function renderCart() {
+      const cart = getCart();
+      const container = document.getElementById('cartContents');
+      if (!cart.length) {
+        container.innerHTML = '<div class="cart-empty"><p style="font-size:3rem">🛒</p><p style="font-size:1.2rem;margin-top:1rem;">Your cart is empty.</p><a href="products.html" class="btn btn--primary" style="margin-top:1.5rem;display:inline-flex;">Browse the shop</a></div>';
+        return;
+      }
+      let subtotal = 0;
+      const items = cart.map(ci => {
+        const p = products.find(x => x.id === ci.id);
+        if (!p) return '';
+        const lineTotal = p.price * ci.qty;
+        subtotal += lineTotal;
+        return `<div class="cart-item">
+          <div class="cart-item__emoji">${p.emoji}</div>
+          <div class="cart-item__info">
+            <div class="cart-item__name">${p.name}</div>
+            <div class="cart-item__price">$${p.price.toFixed(2)} / ${p.unit}</div>
+          </div>
+          <div class="cart-item__qty">
+            <button onclick="changeQty(${p.id}, -1)">−</button>
+            <span>${ci.qty}</span>
+            <button onclick="changeQty(${p.id}, 1)">+</button>
+          </div>
+          <div class="cart-item__total">$${lineTotal.toFixed(2)}</div>
+        </div>`;
+      }).join('');
+      const delivery = subtotal >= 100 ? 0 : subtotal >= 60 ? 3.95 : 6.95;
+      const total = subtotal + delivery;
+      container.innerHTML = items + `
+        <div class="cart-summary">
+          <div class="cart-summary__row"><span>Subtotal</span><span>$${subtotal.toFixed(2)}</span></div>
+          <div class="cart-summary__row"><span>Delivery</span><span>${delivery === 0 ? 'Free 🎉' : '$' + delivery.toFixed(2)}</span></div>
+          <div class="cart-summary__total"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+          <button class="btn btn--primary btn--full" style="margin-top:1.5rem;" onclick="checkout()">Proceed to Checkout</button>
+        </div>`;
+    }
+
+    function changeQty(id, delta) {
+      const cart = getCart();
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      saveCart(cart);
+      renderCart();
+    }
+
+    function checkout() {
+      showToast('Order placed! Thank you 🌿');
+      localStorage.removeItem('gr_cart');
+      updateCartBadge();
+      setTimeout(renderCart, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderCart);
+  </script>
+</body>
+</html>

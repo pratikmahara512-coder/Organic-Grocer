@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GreenRoots – Fresh organic groceries delivered to your door. Seasonal produce, wholesome pantry staples, and flexible subscription deliveries." />
+  <meta name="keywords" content="organic grocery, fresh produce, organic food delivery, healthy food, subscription box, organic vegetables, organic fruit" />
+  <title>GreenRoots | Organic Grocery Store</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav__logo">🌿 GreenRoots</a>
+    <ul class="nav__links">
+      <li><a href="pages/products.html">Shop</a></li>
+      <li><a href="pages/subscription.html">Subscribe</a></li>
+      <li><a href="pages/recipes.html">Recipes</a></li>
+      <li><a href="pages/delivery.html">Delivery</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="pages/login.html" class="btn btn--ghost">Sign in</a>
+      <a href="pages/cart.html" class="btn btn--cart">🛒 <span id="cartCount">0</span></a>
+    </div>
+    <button class="nav__toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="pages/products.html">Shop</a>
+    <a href="pages/subscription.html">Subscribe</a>
+    <a href="pages/recipes.html">Recipes</a>
+    <a href="pages/delivery.html">Delivery</a>
+    <a href="pages/login.html">Sign in</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Farm to doorstep · Sydney &amp; surrounds</span>
+      <h1 class="hero__title">Good food starts<br /><em>in the field.</em></h1>
+      <p class="hero__sub">Weekly boxes of certified organic produce, handpicked from local farms. No surprises, no waste — just seasonal goodness.</p>
+      <div class="hero__ctas">
+        <a href="pages/subscription.html" class="btn btn--primary">Start a subscription</a>
+        <a href="pages/products.html" class="btn btn--outline">Browse the store</a>
+      </div>
+    </div>
+    <div class="hero__badge">
+      <span>Certified<br/>Organic</span>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature__icon">🌱</div>
+      <h3>100% Certified Organic</h3>
+      <p>Every product carries ACO or NASAA certification — no compromises on what goes on your table.</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">🚚</div>
+      <h3>Choose Your Delivery Day</h3>
+      <p>Pick the day and time slot that suits you. We deliver Tuesday–Saturday across Greater Sydney.</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">📦</div>
+      <h3>Flexible Subscriptions</h3>
+      <p>Weekly, fortnightly, or monthly boxes. Pause or cancel any time — no lock-in.</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">🥦</div>
+      <h3>Nutritional Info Included</h3>
+      <p>Every product page includes nutritional data and seasonal recipe suggestions from our kitchen team.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section">
+    <div class="section__header">
+      <h2>This Week's Picks</h2>
+      <a href="pages/products.html" class="link-arrow">See all products →</a>
+    </div>
+    <div class="products-grid" id="featuredProducts"></div>
+  </section>
+
+  <!-- SUBSCRIPTION CTA -->
+  <section class="sub-cta">
+    <div class="sub-cta__text">
+      <h2>Never run out of the good stuff.</h2>
+      <p>Our subscription boxes start at $39/week and are packed with the freshest seasonal produce. Customise as you go.</p>
+      <a href="pages/subscription.html" class="btn btn--primary">See subscription plans</a>
+    </div>
+    <div class="sub-cta__visual">
+      <div class="sub-cta__box">
+        <div class="sub-cta__box-label">Seasonal Box · This Week</div>
+        <ul>
+          <li>🥕 Carrots (bunch)</li>
+          <li>🥬 Kale (200g)</li>
+          <li>🍅 Heirloom tomatoes</li>
+          <li>🫑 Red capsicum (×2)</li>
+          <li>🥦 Broccoli (head)</li>
+          <li>🍋 Lemons (×3)</li>
+        </ul>
+        <div class="sub-cta__price">From <strong>$39</strong>/week</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY MAP PLACEHOLDER -->
+  <section class="section">
+    <div class="section__header">
+      <h2>Do We Deliver to You?</h2>
+    </div>
+    <div class="map-section">
+      <div class="map-container" id="deliveryMap">
+        <iframe
+          src="https://maps.google.com/maps?q=Sydney,+NSW,+Australia&z=10&output=embed"
+          width="100%" height="400" style="border:0;" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="map-check">
+        <h3>Check your suburb</h3>
+        <p>Enter your postcode to confirm we deliver to your area.</p>
+        <div class="map-check__form">
+          <input type="text" id="postcodeInput" placeholder="e.g. 2000" maxlength="4" />
+          <button class="btn btn--primary" onclick="checkDelivery()">Check</button>
+        </div>
+        <p id="deliveryResult" class="delivery-result"></p>
+        <p class="map-check__note">We currently cover most of Greater Sydney (2000–2999). <a href="pages/delivery.html">Full delivery zones →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__brand">
+      <span class="footer__logo">🌿 GreenRoots</span>
+      <p>Organic groceries, delivered fresh from local farms to your door.</p>
+    </div>
+    <div class="footer__links">
+      <h4>Shop</h4>
+      <a href="pages/products.html">All Products</a>
+      <a href="pages/subscription.html">Subscriptions</a>
+      <a href="pages/recipes.html">Recipes</a>
+    </div>
+    <div class="footer__links">
+      <h4>Help</h4>
+      <a href="pages/delivery.html">Delivery Info</a>
+      <a href="pages/login.html">My Account</a>
+      <a href="pages/cart.html">Cart</a>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 GreenRoots Organic Pty Ltd · ABN 00 000 000 000 · Sydney, NSW</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Render featured products on home page
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge();
+      const grid = document.getElementById('featuredProducts');
+      if (!grid) return;
+      const featured = products.slice(0, 6);
+      grid.innerHTML = featured.map(p => productCard(p)).join('');
+    });
+
+    function checkDelivery() {
+      const val = document.getElementById('postcodeInput').value.trim();
+      const result = document.getElementById('deliveryResult');
+      if (!val || val.length !== 4) { result.textContent = 'Please enter a valid 4-digit postcode.'; result.className = 'delivery-result error'; return; }
+      const code = parseInt(val);
+      if (code >= 2000 && code <= 2999) {
+        result.textContent = '✅ Great news — we deliver to your area!';
+        result.className = 'delivery-result success';
+      } else {
+        result.textContent = '❌ Sorry, that postcode is outside our current delivery zone.';
+        result.className = 'delivery-result error';
+      }
+    }
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
